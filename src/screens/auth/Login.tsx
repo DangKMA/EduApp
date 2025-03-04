@@ -4,7 +4,7 @@ import ButtonComponent from '../../components/ButtonComponent';
 import TextComponent from '../../components/TextComponent';
 import {appColors} from '../../constants/appColors';
 import InputComponent from '../../components/InputComponent';
-import {useNavigation} from '@react-navigation/native';
+import {Call, CallCalling, Lock, Mobile, Sms} from 'iconsax-react-native';
 
 const Login = () => {
   const [phone, setPhone] = useState('');
@@ -28,20 +28,22 @@ const Login = () => {
         <TextComponent text="Nhập số điện thoại" />
         <InputComponent
           value={phone}
-          onChange={setPhone}
+          onChange={val => setPhone(val)}
           placeholder="Nhập số điện thoại"
           type="phone-pad"
           allowClear
+          affix={<CallCalling size={22} color={appColors.gray2} />}
         />
 
         <TextComponent text="Nhập mật khẩu" />
         <InputComponent
           value={password}
-          onChange={setPassWord}
+          onChange={val => setPassWord(val)}
           placeholder="Nhập mật khẩu"
           type="default"
           isPassword
           allowClear
+          affix={<Lock size={22} color={appColors.gray2} />}
         />
         <View
           style={{
