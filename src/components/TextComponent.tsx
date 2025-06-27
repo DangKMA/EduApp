@@ -13,12 +13,24 @@ interface Props {
   styles?: StyleProp<TextStyle>;
   title?: boolean;
   numberOfLine?: number;
+  weight?:
+    | 'normal'
+    | 'bold'
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900';
 }
 
 const TextComponent = (props: Props) => {
   const {text, size, flex, font, color, styles, title, numberOfLine} = props;
 
-  const fontSizeDefault = Platform.OS === 'ios' ? 16 : 14;
+  const fontSizeDefault = Platform.OS === 'android' ? 16 : 14;
 
   return (
     <Text

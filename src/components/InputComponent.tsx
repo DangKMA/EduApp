@@ -6,7 +6,6 @@ import {
   KeyboardType,
 } from 'react-native';
 import React, {ReactNode, useState} from 'react';
-
 import {appColors} from '../constants/appColors';
 import {globalStyles} from '../styles/globalStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';

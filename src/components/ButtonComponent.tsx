@@ -47,6 +47,7 @@ const ButtonComponent = (props: Props) => {
         onPress={onPress}
         style={[
           globalStyles.button,
+          globalStyles.shadow,
           {
             backgroundColor: color
               ? color
@@ -71,7 +72,7 @@ const ButtonComponent = (props: Props) => {
             },
           ]}
           flex={icon && iconFlex === 'right' ? 1 : 0}
-          font={textFont ?? fontfamilies.regular}
+          font={textFont ?? fontfamilies.medium}
         />
         {icon && iconFlex === 'right' && icon}
       </TouchableOpacity>

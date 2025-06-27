@@ -10,12 +10,34 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // ✅ BỎ configurations.all từ đây
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:8.4.0")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
+        classpath("com.google.gms:google-services:4.4.2")
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// ✅ THÊM: allprojects block với configurations
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
+    
+    // ✅ ĐÂY LÀ VỊ TRÍ ĐÚNG cho configurations.all
+    configurations.all {
+        resolutionStrategy {
+            force "com.google.android.gms:play-services-location:21.0.1"
+            force "com.google.android.gms:play-services-maps:18.2.0"
+            force "com.google.android.gms:play-services-base:18.2.0"
+            force "com.google.android.gms:play-services-tasks:18.0.2"
+            force "com.google.android.gms:play-services-basement:18.2.0"
+        }
+    }
+}
